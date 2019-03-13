@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 const clients = [{
     name: 'Филип Фрай',
     email: 'fray@mail.un',
@@ -17,10 +17,10 @@ const clients = [{
 }];
 
 let changeName = (incommingArray, index, name) => {
-    let array = incommingArray;
-    array[index].name = name;
-    return array;
+    let newArray = incommingArray.slice();
+    newArray[index].name = name;
+    return newArray;
 }
 
-console.log(clients);
 console.log(changeName(clients, 1, 'Мартин Скорсезе'));
+console.log(changeName(clients, 1, 'Мартин Скорсезе') === clients);
