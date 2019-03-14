@@ -17,10 +17,18 @@ const clients = [{
 }];
 
 let changeName = (incommingArray, index, name) => {
-    let newArray = incommingArray.slice();
-    newArray[index].name = name;
-    return newArray;
+
+    const newArray = [...incommingArray];
+
+    const requestedElement = Object.assign({}, incommingArray[index]);
+    requestedElement.name = name;
+
+    // Remove element from the new array but save the index, after that place copied element into that index.
+    delete newArray[index];
+    newArray[index] = requestedElement;
+
+    return newArray
 }
 
+console.log(clients);
 console.log(changeName(clients, 1, 'Мартин Скорсезе'));
-console.log(changeName(clients, 1, 'Мартин Скорсезе') === clients);
