@@ -1,26 +1,20 @@
 'use strict';
-Object.create = (function (incommingPrototype, incommingProperties) {
+Object.prototype.create = function (incommingPrototype, incommingProperties) {
+
     if (typeof incommingPrototype != 'object' || typeof (incommingPrototype) == null) {
         throw new TypeError("Prototype is not an Object");
     }
 
-    let obj = new Object();
-    obj.prototype = incommingPrototype;
-
-    if (typeof (incommingPrototype) === "object") {
-        for (let prop in incommingPrototype) {
-            if (incommingPrototype.hasOwnProperty((prop))) {
-                obj[prop] = incommingPrototype[prop];
-            }
-        }
-    }
+    let obj = {};
+    obj.__proto__ = incommingPrototype;
 
     if (incommingProperties !== undefined) {
         Object.defineProperties(obj, incommingProperties);
     }
-    
+
     return obj;
-});
+
+};
 
 let citizen = {
     sleep: function () { return "zzZ..."; },

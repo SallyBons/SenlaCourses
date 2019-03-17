@@ -1,10 +1,9 @@
 'use strict'
-class Hero {
-    constructor(name) {
-        this.name = name;
-        this.hp = 100;
-    }
-    strike(enemyName, damage) {
+function Warrior(name) {
+    this.name = name;
+    this.hp = 100;
+
+    this.strike = (enemyName, damage) => {
         let totalDamage = damage * 10;
 
         if (enemyName.hp < totalDamage) {
@@ -15,8 +14,8 @@ class Hero {
             enemyName.hp = enemyName.hp - totalDamage;
     }
 }
-const orc = new Hero('Orc');
-const man = new Hero('Man');
+const orc = new Warrior('Orc');
+const man = new Warrior('Man');
 
 console.log(orc.hp);
 man.strike(orc, 3);
