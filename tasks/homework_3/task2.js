@@ -1,15 +1,23 @@
 'use strict';
 Array.prototype.zip = function (array, callback) {
+    
+    let newArray = [];
+    let minLength;
 
-    if (array.length > this.length) {
-        array.pop();
+    if (this.length >= array.length) {
+        minLength = array.length;
+    } else {
+        minLength = this.length
     }
 
-    let newArray = this.map((currentElement, index) => {
-        return callback(currentElement, array[index]);
-    });
+    for (let index = 0; index < minLength; index++) {
+
+        newArray.push(callback(this[index], array[index]));
+
+    }
 
     return newArray;
+
 }
 
 const a = [1, 2, 3, 4, 5];
