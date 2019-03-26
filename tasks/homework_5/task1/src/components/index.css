@@ -1,0 +1,25 @@
+.MainPage-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.isFixed {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.Header {
+    background-color: blue;
+    top: 0;
+}
+
+.Footer {
+    background-color: green;
+    bottom: 0;
+}
