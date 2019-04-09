@@ -1,0 +1,21 @@
+.books-container {
+    margin-top: 25px;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .book-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid goldenrod;
+  }
+  
+  .book-link {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: royalblue;
+  }
+  

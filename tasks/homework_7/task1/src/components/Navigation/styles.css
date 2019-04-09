@@ -1,0 +1,23 @@
+.navigation {
+  display: flex;
+  justify-content: space-around;
+  margin: 5px;
+}
+
+.nav-item {
+  width: 200px;
+  color: brown;
+  text-decoration: none;
+  text-align: center;
+  padding: 10px;
+  border: 2px solid brown;
+}
+
+.nav-item:hover {
+  color: palevioletred;
+}
+
+.active-nav-item {
+  color: green;
+  background: burlywood;
+}
