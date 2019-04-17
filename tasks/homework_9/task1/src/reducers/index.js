@@ -1,5 +1,5 @@
 const initialValues = {
-   users: null
+   users: []
 };
 
 const usersReducers = (state = initialValues, action) => {
@@ -12,7 +12,7 @@ const usersReducers = (state = initialValues, action) => {
     case 'DELETE_USER':
       return {
         ...state,
-        users: [...state.users.filter(name => name !== action.id)]
+        users: [...state.users.filter(user => user.id !== action.id)]
       }
     default:
       return state;
@@ -27,15 +27,9 @@ const loadUser = () => (dispatch) => {
   fetch(`https://jsonplaceholder.typicode.com/users/`)
     .then((result) => result.json())
     .then((result) => {
-
-      let names = [];
-      result.forEach(element => {
-        names.push(element.name);
-      });
-
-      dispatch({
+     dispatch({
         type: 'GET_USERS',
-        payload: names
+        payload: result
       })
     })
 }

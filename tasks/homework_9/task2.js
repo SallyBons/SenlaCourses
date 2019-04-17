@@ -33,11 +33,11 @@ let getStatistic = (incomingString) => {
 }
 
 let toReqestedFormat = (numberOfSeconds) => {
-    var hours = String(Math.floor(numberOfSeconds / 3600));
+    let hours = String(Math.floor(numberOfSeconds / 3600));
     hours.length === 1 ? hours = '0' + hours : hours;
-    var minutes = String(Math.floor((numberOfSeconds % 3600) / 60));
+    let minutes = String(Math.floor((numberOfSeconds % 3600) / 60));
     minutes.length === 1 ? minutes = '0' + minutes : minutes;
-    var seconds = String(Math.floor(numberOfSeconds % 60));
+    let seconds = String(Math.floor(numberOfSeconds % 60));
     seconds.length === 1 ? seconds = '0' + seconds : minutes;
 
     return `${hours}|${minutes}|${seconds}`
