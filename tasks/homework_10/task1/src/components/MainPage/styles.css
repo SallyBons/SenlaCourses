@@ -1,0 +1,20 @@
+.mainpage-container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1400px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.mainpage-item {
+  margin: 15px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 5px 0px rgba(163,163,163,1);
+  height: 293px;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+

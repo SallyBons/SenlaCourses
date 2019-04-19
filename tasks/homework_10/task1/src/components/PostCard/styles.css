@@ -1,0 +1,14 @@
+.post-container {
+  width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.post-text {
+   max-height: 600px;
+}
+
+
