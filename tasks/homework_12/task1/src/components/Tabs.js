@@ -30,7 +30,6 @@ export default compose(
           tabClick('all');
           break;
       }
-
     },
   })
 )(Tabs);

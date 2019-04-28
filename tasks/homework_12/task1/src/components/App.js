@@ -114,12 +114,10 @@ export default compose(
         localStorage.setItem('todos', JSON.stringify(todosStorage));
         setTodos(todosStorage)
       }
-      console.log('componentDidMount', this.props)
     },
     componentDidUpdate() {
       let { todos } = this.props;
       localStorage.setItem('todos', JSON.stringify(todos));
-      console.log('componentDidUpdate', this.props)
     }
   }),
   withPropsOnChange(['todos'], ({ todos }) => {
@@ -133,7 +131,7 @@ export default compose(
     // ToDo Item
     handleCompleteTodo: ({ todos, setTodos }) => (id) => {
       const res = todos.map((value) => {
-        const item = value;
+        const item = Object.assign({}, value);;
         if (item.id === id) {
           item.isCompleted = !item.isCompleted;
           return item;
@@ -144,7 +142,7 @@ export default compose(
     },
     handleImportantTodo: ({ todos, setTodos }) => (id) => {
       const res = todos.map((value) => {
-        const item = value;
+        const item = Object.assign({}, value);;
         if (item.id === id) {
           item.isImportant = !item.isImportant;
           return item;
@@ -166,7 +164,6 @@ export default compose(
       let newList = [];
       if (event.target.value !== '') {
         newList = todos.filter(item => {
-          console.log(item)
           const lc = item.todo.toLowerCase();
           const filter = event.target.value.toLowerCase();
           return lc.includes(filter);

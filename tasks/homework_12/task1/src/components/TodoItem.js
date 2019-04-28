@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { compose, withHandlers, pure, lifecycle } from 'recompose';
+import { compose, withHandlers, pure } from 'recompose';
 import './styles.css';
 
 const TodoItem = (props) => {
@@ -27,11 +27,6 @@ TodoItem.propTypes = {
 
 export default compose(
   pure,
-  lifecycle({
-    componentWillUnmount() {
-      console.log('will unmount');
-    }
-  }),
   withHandlers({
     handleDeleteButton: ({ toggleDeleteButton, id }) => () => toggleDeleteButton(id),
     handleComplete: ({ toggleCompletition, id }) => () => toggleCompletition(id),
