@@ -7,8 +7,6 @@ const TodoItem = ({todo, id, toggleDeleteButton,toggleCompletition,toggleImporta
   const handleDeleteButton = useCallback(() => toggleDeleteButton(id), [toggleDeleteButton, id]);
   const handleComplete = useCallback(() => toggleCompletition(id), [toggleCompletition, id]);
   const handleImportant = useCallback(() =>toggleImportant(id), [toggleImportant, id]);
-
-  console.log('x');
   return (
     <div className="todo-item">
     <div role="presentation" onClick={handleComplete} className={`${isCompleted === true ? 'task-completed' : 'todo-text'} ${isImportant === true ? 'task-important' : 'todo-text'}`}>{todo}</div>

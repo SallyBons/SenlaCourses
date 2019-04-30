@@ -65,7 +65,7 @@ const App = () => {
           return lc.includes(filter);
         });
       }
-      
+
       updatesearchInputValue(event.target.value)
       updatefilteredArray(newList)
     }
@@ -142,20 +142,8 @@ const App = () => {
 
         <Form onSubmit={handleSubmitButton} />
 
-        {/* <ul className="todo-list">
-          {todos.map(todo => (
-            <TodoItem
-              key={todo.id}
-              toggleDeleteButton={handleDeleteTodo}
-              toggleCompletition={handleCompleteTodo}
-              toggleImportant={handleImportantTodo}
-              {...todo}
-            />
-          ))}
-        </ul> */}
-
         <ul className="todo-list">
-          { HooksCustomRender() }
+          {HooksCustomRender()}
         </ul>
 
       </div>
