@@ -20,7 +20,11 @@ const App = () => {
         updateTodos(todosStorage)
       }
       updateDidMount(true)
-    } else {
+    }
+  });
+
+  useEffect(() => {
+    if (didMount === true) {
       localStorage.setItem('todos', JSON.stringify(todos));
     }
   });
@@ -70,28 +74,8 @@ const App = () => {
       updatefilteredArray(newList)
     }
   )
-
-  let HooksCustomRender = () => {
-    let todosToRender = [];
-    console.log(filteredArray);
-    if (filteredArray.length !== 0) {
-      return returnTodosAccordingToStatus(filteredArray).map(todo => (
-        <TodoItem
-          key={todo.id}
-          toggleDeleteButton={handleDeleteTodo}
-          toggleCompletition={handleCompleteTodo}
-          toggleImportant={handleImportantTodo}
-          {...todo}
-        />
-      ));
-    }
-    if (searchInputValue.length !== 0) {
-      return '';
-    }
-
-    todosToRender = returnTodosAccordingToStatus(todos);
-
-    return todosToRender.map(todo => (
+  let returnTodoItemList = (arrayTodosList) => {
+    return arrayTodosList.map(todo => (
       <TodoItem
         key={todo.id}
         toggleDeleteButton={handleDeleteTodo}
@@ -100,6 +84,21 @@ const App = () => {
         {...todo}
       />
     ));
+  }
+
+  let hooksCustomRender = () => {
+    let todosToRender = [];
+    if (filteredArray.length !== 0) {
+      return returnTodoItemList(returnTodosAccordingToStatus(filteredArray));
+    }
+    if (searchInputValue.length !== 0) {
+      return '';
+    }
+
+    todosToRender = returnTodosAccordingToStatus(todos);
+
+    return returnTodoItemList(todosToRender);
+
   }
 
   let returnTodosAccordingToStatus = (todoArray) => {
@@ -119,6 +118,8 @@ const App = () => {
     }
     return todosToRender;
   }
+
+
 
   return (
     <div className="app-container">
@@ -143,7 +144,7 @@ const App = () => {
         <Form onSubmit={handleSubmitButton} />
 
         <ul className="todo-list">
-          {HooksCustomRender()}
+          {hooksCustomRender()}
         </ul>
 
       </div>
